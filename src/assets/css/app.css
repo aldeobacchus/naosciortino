@@ -1,0 +1,33 @@
+/* ====
+ * TailwindCSS import
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+
+/* Fonts */
+@font-face {
+    font-family: 'texgyreheroes-regular';
+    src: url(../fonts/texgyreheros-regular.otf);
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+.font-heros-regular {
+    font-family: 'texgyreheroes-regular';
+}
+
+@font-face {
+    font-family: 'texgyreheroes-italic';
+    src: url(../fonts/texgyreheros-italic.otf);
+    font-weight: 400;
+    font-display: swap;
+    font-style:italic;
+}
+
+.font-heros-italic {
+    font-family: 'texgyreheroes-italic';
+}
