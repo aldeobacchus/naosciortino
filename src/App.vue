@@ -24,13 +24,17 @@ export default {
 </script>
 
 <template>
-  <div class="pt-0.5 font-heros-regular">
+  <div class="font-heros-regular">
 
     <!-- App Header -->
     <AppHeader @viewSelected="updateView"/>
 
+    <!--+++ THE DIFFERENTS VIEWS +++-->
+
+    <!-- Home -->
     <Home v-if="view === 'home'" />
 
+    <!-- About -->
     <About v-else-if="view === 'about'" />
 
   </div>

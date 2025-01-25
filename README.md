@@ -11,3 +11,6 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 - Le menu est fixé sur ses images mais si le texte est trop grand ?
 - Texte plus petit ?
 - taille du sous titre plus petit ?
+- le contenu est il fixé, y a til que les images qui bouge
+    - background white or transparent ? 
+    - transparent -> highligt link on hover

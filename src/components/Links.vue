@@ -20,7 +20,7 @@ export default {
         },
 
         //A method to display the Article
-        setActiveArticle(article) {
+        setActiveArticle( article) {
             console.log(article);
             this.activeArticle = article;
             this.$emit('articleSelected', article);

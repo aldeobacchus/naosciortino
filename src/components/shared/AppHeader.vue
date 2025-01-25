@@ -30,7 +30,7 @@ export default {
   <nav id="nav" class="sm:container sm:mx-auto">
     <!-- Header start -->
     <div class="z-10  my-6 flex justify-center items-center gap-[20%]">
-        <h1 @click="updateView('home')">Nao Sciortino</h1>
+        <h1>Nao Sciortino</h1>
         <div class="flex flex-col">
             <h1 @click="updateAbout()" class="cursor-pointer">About</h1>
             <div class="flex justify-between flex-row">

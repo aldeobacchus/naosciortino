@@ -26,11 +26,17 @@ export default {
 
 <template>
   
-  <div class="container">
+  <div class="flex flex-row p-0">
 
-    <ArticleText v-if="article" :article="article"/>
-    
-    <Links @articleSelected="updateArticle"/>
+    <div class="container">
+
+      <ArticleText v-if="article" :article="article"/>
+      
+      <Links @articleSelected="updateArticle"/>
+
+    </div>
+
+    <ArticleImage class="w-1/2" v-if="article" :article="article"/>
 
   </div>
 
