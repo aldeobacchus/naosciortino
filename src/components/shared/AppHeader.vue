@@ -1,4 +1,5 @@
 <script>
+import { useArticleStore } from '../../stores/articleStore';
 
 export default {
   name: 'AppHeader',
@@ -6,6 +7,13 @@ export default {
     return {
       view: 'home'
     }
+  },
+  setup() {
+    const articleStore = useArticleStore();
+    const updateStoreArticle = (article) => {
+      articleStore.updateArticle(article)
+    }
+    return {articleStore, updateStoreArticle}
   },
   methods :{
     updateAbout(){
@@ -20,6 +28,13 @@ export default {
     },
     updateView(view){
       this.$emit('viewSelected', view);
+    },
+    setHome(){
+      if (this.view !== 'home'){
+        this.view = 'home';
+      }
+      this.updateStoreArticle('');
+      this.updateView(this.view);
     }
   }
 }
@@ -29,10 +44,10 @@ export default {
 <template>
   <nav id="nav" class="sm:container sm:mx-auto">
     <!-- Header start -->
-    <div class="z-10  my-6 flex justify-center items-center gap-[20%]">
-        <h1>Nao Sciortino</h1>
+    <div class="z-10  py-6 flex justify-center items-center gap-[20%]">
+        <h1 @click="setHome">Nao Sciortino</h1>
         <div class="flex flex-col">
-            <h1 @click="updateAbout()" class="cursor-pointer">About</h1>
+            <h1 @click="updateAbout()">About</h1>
             <div class="flex justify-between flex-row">
                 <a href="https://instagram.com" target="_blank" class="uppercase">IG</a>
                 <a href="https://soundcloud.com" target="_blank" class="uppercase">SC</a>

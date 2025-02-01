@@ -41,11 +41,12 @@ export default {
 <template>
     
      <!-- Show the image when hovering -->
+    <div>
       
-     <div v-if="isAnImageVisible" class="image-container" :style="{ top: (mousePosition.y + 20 )+ 'px', left: (mousePosition.x + 20) + 'px' }">
-            <img :src="visibleImagePath" alt="image" style="width:150px" />
+    <div v-if="isAnImageVisible" class="image-container" :style="{ top: (mousePosition.y + 20 )+ 'px', left: (mousePosition.x + 20) + 'px' }">
+        <img :src="visibleImagePath" alt="image" style="width:150px" />
 
-        </div>
+    </div>
 
     <div class="px-4 flex flex-col gap-4">
         <!-- Top row -->
@@ -144,6 +145,7 @@ export default {
                 
             </section>
         </div>
+    </div>
                 
     </div>
     

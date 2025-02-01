@@ -1,5 +1,6 @@
 <script>
 import articlesData from '@/assets/data/content.json'
+import { useArticleStore } from '../stores/articleStore';
 
 export default {
     name: 'Links',
@@ -11,6 +12,13 @@ export default {
             activeArticle: null
         }
     },
+    setup() {
+        const articleStore = useArticleStore();
+        const updateStoreArticle = (article) => {
+            articleStore.updateArticle(article)
+        }
+        return{ articleStore, updateStoreArticle}
+    },
     methods: {
         // A method to display the Articles sublinks
         displayArticlesLinks(link) {
@@ -18,12 +26,9 @@ export default {
             this.activeLink = link;
             this.activeSublinks = link.articles;
         },
-
-        //A method to display the Article
-        setActiveArticle( article) {
-            console.log(article);
-            this.activeArticle = article;
-            this.$emit('articleSelected', article);
+        displayArticles(sublink){
+            this.activeArticle = sublink;
+            this.updateStoreArticle(sublink);
         }
     }
 }
@@ -33,13 +38,13 @@ export default {
 
     <!--Links to display the articles-->
     <section class="inline-flex flex-col">
-        <div v-for="link in links" :key="link.id" class="flex flex-col">
+        <div v-for="link in links" :key="link.id" class="flex flex-col">            
 
-            <p @click="displayArticlesLinks(link)" class="cursor-pointer"> {{ link.title }} </p>
+            <p @click="displayArticlesLinks(link)"> {{ link.title }} </p>
             
             <div v-if="activeSublinks && activeLink.id === link.id" class="pl-8 flex flex-col">
                 <div v-for="sublink in activeSublinks" :key="sublink.id">
-                    <p @click="setActiveArticle(sublink)" :class="['cursor-pointer', { italic : activeArticle === sublink}]"> {{ sublink.title }} </p>
+                    <p @click="displayArticles(sublink)" :class="[{ italic : activeArticle === sublink}]"> {{ sublink.title }} </p>
                 </div>
             </div>
 

@@ -2,6 +2,7 @@
 import ArticleText from '../components/articles/ArticleText.vue'
 import ArticleImage from '../components/articles/ArticleImage.vue'
 import Links from '../components/Links.vue'
+import { useArticleStore } from '../stores/articleStore';
 
 export default {
     name: 'Home',
@@ -10,15 +11,9 @@ export default {
         ArticleImage,
         Links
     },
-    data(){
-        return {
-            article: null
-        }
-    },
-    methods :{
-        updateArticle(article){
-          this.article = article;
-        }
+    setup() {
+      const articleStore = useArticleStore();
+      return{articleStore}
     }
 
 }
@@ -26,17 +21,17 @@ export default {
 
 <template>
   
-  <div class="flex flex-row p-0">
+  <div class="flex flex-row">
 
-    <div class="container">
+    <div class=" fixed w-3/4 top-24 flex flex-col items-start">
 
-      <ArticleText v-if="article" :article="article"/>
+      <ArticleText class="pl-[30rem]" v-if="articleStore.article" />
       
-      <Links @articleSelected="updateArticle"/>
+      <Links/>
 
     </div>
 
-    <ArticleImage class="w-1/2" v-if="article" :article="article"/>
+    <ArticleImage class="inline-block ml-[75%]" v-if="articleStore.article"/>
 
   </div>
 

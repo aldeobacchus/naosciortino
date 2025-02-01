@@ -7,6 +7,27 @@
 
 /* Custom Styles */
 
+body {
+    margin : 0 !important;
+}
+
+/* Cursor */
+
+*, [role="button"], [role="link"] {
+    cursor: url('../cursor/s-crosshair.cur'), auto !important;
+}
+
+/* Selection */
+::-moz-selection { /* Code for Firefox */
+    color: #27272a;
+    background: #e4e4e7;
+  }
+  
+  ::selection {
+    color: #27272a;
+    background: #e4e4e7;
+  }
+
 /* Fonts */
 @font-face {
     font-family: 'texgyreheroes-regular';
@@ -15,7 +36,6 @@
     font-display: swap;
     font-style: normal;
 }
-
 .font-heros-regular {
     font-family: 'texgyreheroes-regular';
 }
@@ -27,7 +47,29 @@
     font-display: swap;
     font-style:italic;
 }
-
 .font-heros-italic {
     font-family: 'texgyreheroes-italic';
+}
+
+@font-face {
+    font-family: 'PPSupplyMono-Ultralight';
+    src: url(../fonts/PPSupplyMono-Ultralight.otf);
+    font-weight: 100;
+    font-display: swap;
+    font-style: normal;
+}
+.font-PPSupplyMono-Ultralight {
+    font-family: 'PPSupplyMono-Ultralight';
+}
+
+
+@font-face {
+    font-family: 'epkyouka';
+    src: url(../fonts/epkyouka.woff);
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+.font-epkyouka {
+    font-family: 'epkyouka';
 }

@@ -2,6 +2,7 @@
 import AppHeader from './components/shared/AppHeader.vue'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
+import { useArticleStore } from './stores/articleStore';
 
 export default {
   name: 'App',
@@ -15,6 +16,10 @@ export default {
       view: 'home'
     }
   },
+  setup() {
+    const articleStore = useArticleStore();
+    return{articleStore};
+  },
   methods :{
     updateView(view){
       this.view = view;
@@ -24,18 +29,19 @@ export default {
 </script>
 
 <template>
-  <div class="font-heros-regular">
+  <div class="font-PPSupplyMono-Ultralight">
+   
 
     <!-- App Header -->
-    <AppHeader @viewSelected="updateView"/>
+    <AppHeader class="fixed top-0 left-0 w-full"  @viewSelected="updateView"/>
 
     <!--+++ THE DIFFERENTS VIEWS +++-->
 
     <!-- Home -->
-    <Home v-if="view === 'home'" />
+    <Home class="pt-24" v-if="view === 'home'"/>
 
     <!-- About -->
-    <About v-else-if="view === 'about'" />
+    <About class="pt-24" v-else-if="view === 'about'" />
 
   </div>
   

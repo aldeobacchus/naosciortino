@@ -6,11 +6,7 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 
 ## Questions pour Nao
 
-- clic en dehors pour cacher les liens ?
-- Lorsqu'un clique sur un lien est ce que le texte doit apparraitre au dessus des liens ou en dessous
-- Le menu est fixé sur ses images mais si le texte est trop grand ?
-- Texte plus petit ?
-- taille du sous titre plus petit ?
-- le contenu est il fixé, y a til que les images qui bouge
-    - background white or transparent ? 
-    - transparent -> highligt link on hover
+- quel couleurs pour la selection de texte ?
+- il y a une outline blanche autour du cursor c'est normal ?
+- si le texte est toujours à droite des liens avec certaines resolution le texte est completrement écrasé entre les liens et les images
+- comme le texte est fixé parfois on a un gros décalage entre les liens et le texte quand les textes sont court
