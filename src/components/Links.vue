@@ -44,7 +44,7 @@ export default {
             
             <div v-if="activeSublinks && activeLink.id === link.id" class="pl-8 flex flex-col">
                 <div v-for="sublink in activeSublinks" :key="sublink.id">
-                    <p @click="displayArticles(sublink)" :class="[{ italic : activeArticle === sublink}]"> {{ sublink.title }} </p>
+                    <p @click="displayArticles(sublink)" :class="[{ italic : activeArticle === sublink}, 'w-fit hover:bg-gray-100 transition-colors duration-100']"> {{ sublink.title }} </p>
                 </div>
             </div>
 

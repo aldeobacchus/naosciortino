@@ -23,11 +23,11 @@ export default {
   
   <div class="flex flex-row">
 
-    <div class=" fixed w-3/4 top-24 flex flex-col items-start">
+    <div class="flex flex-col items-start">
 
-      <ArticleText class="pl-[30rem]" v-if="articleStore.article" />
+      <ArticleText class="fixed  pl-[25%] pr-[25%]" v-if="articleStore.article" />
       
-      <Links/>
+      <Links class="top-[50%] w-[25%] fixed" />
 
     </div>
 
