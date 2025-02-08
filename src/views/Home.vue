@@ -2,6 +2,7 @@
 import ArticleText from '../components/articles/ArticleText.vue'
 import ArticleImage from '../components/articles/ArticleImage.vue'
 import Links from '../components/Links.vue'
+import VideoHover from '../components/VideoHover.vue';
 import { useArticleStore } from '../stores/articleStore';
 
 export default {
@@ -9,7 +10,8 @@ export default {
     components: {
         ArticleText,
         ArticleImage,
-        Links
+        Links,
+        VideoHover
     },
     setup() {
       const articleStore = useArticleStore();
@@ -21,17 +23,19 @@ export default {
 
 <template>
   
-  <div class="flex flex-row">
+  <div class="flex flex-row px-4">
 
     <div class="flex flex-col items-start">
 
-      <ArticleText class="fixed  pl-[25%] pr-[25%]" v-if="articleStore.article" />
+      <VideoHover v-if="!articleStore.article" videoSrc="/src/assets/video/landing.webm" />
+
+      <ArticleText v-if="articleStore.article" class="fixed  pl-[25%] pr-[25%]"/>
       
       <Links class="top-[50%] w-[25%] fixed" />
 
     </div>
 
-    <ArticleImage class="inline-block ml-[75%]" v-if="articleStore.article"/>
+    <ArticleImage v-if="articleStore.article" class="inline-block ml-[75%]" />
 
   </div>
 

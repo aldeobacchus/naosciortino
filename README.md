@@ -8,5 +8,9 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 
 - quel couleurs pour la selection de texte ?
 - il y a une outline blanche autour du cursor c'est normal ?
-- si le texte est toujours à droite des liens avec certaines resolution le texte est completrement écrasé entre les liens et les images
+- la taille du curseur est elle ok ?
+- si le texte est toujours à droite des liens avec certaines resolution le texte est completrement écrasé entre les liens et les images -> passer les images en dessous ?
 - comme le texte est fixé parfois on a un gros décalage entre les liens et le texte quand les textes sont court
+
+## Pour moi
+- ajouter une section au readme qui explique comment ajouter des articles ou des sections

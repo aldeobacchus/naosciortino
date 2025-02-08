@@ -40,11 +40,12 @@ export default {
     <section class="inline-flex flex-col">
         <div v-for="link in links" :key="link.id" class="flex flex-col">            
 
-            <p @click="displayArticlesLinks(link)"> {{ link.title }} </p>
+            <a @click="displayArticlesLinks(link)"> {{ link.title }} </a>
             
-            <div v-if="activeSublinks && activeLink.id === link.id" class="pl-8 flex flex-col">
+            <div v-if="activeSublinks && activeLink.id === link.id" class="flex flex-col">
                 <div v-for="sublink in activeSublinks" :key="sublink.id">
-                    <p @click="displayArticles(sublink)" :class="[{ italic : activeArticle === sublink}, 'w-fit hover:bg-gray-100 transition-colors duration-100']"> {{ sublink.title }} </p>
+                    <p v-if="sublink.type === 'title'" class="italic">{{ sublink.title }}</p>
+                    <a v-if="sublink.type === 'article' " @click="displayArticles(sublink)" :class="[{ 'bg-gray-100' : activeArticle === sublink},'ml-8']"> {{ sublink.title }} </a>
                 </div>
             </div>
 

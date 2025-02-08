@@ -7,14 +7,8 @@ export default {
         return{articleStore}
     },
     methods: {
-        getFolderPath(article) {
-            console.log("article : " + article);
-            if(article){
-                const [ref1, ref2] = article.id.split(".");
-                const basePath = `/src/assets/images/${ref1}/${ref2}`;
-                return basePath;
-            } else return(null)
-            
+        getImageUrl(url){
+            return new URL(url, import.meta.url).href
         }
     }
 };
@@ -26,11 +20,11 @@ export default {
 
     <div>
         
-        <!--display image -->
-        <img :src="`${getFolderPath(articleStore.article)}/chevaux.jpg`" alt="article image" class="w-full h-auto object-cover" />
-        <img :src="`${getFolderPath(articleStore.article)}/dessin.jpg`" alt="article image" class="w-full h-auto object-cover" />
-        <img :src="`${getFolderPath(articleStore.article)}/chevalier.jpg`" alt="article image" class="w-full h-auto object-cover" />
-        <img :src="`${getFolderPath(articleStore.article)}/bonhommes.jpg`" alt="article image" class="w-full h-auto object-cover" />
+        <img 
+            v-for="(image, index) in articleStore.article.images" 
+            :key="index"
+            :src=getImageUrl(image)
+            alt="`Image ${index + 1} pour ${articleStore.activeArticle.title}`">
 
     </div>
 

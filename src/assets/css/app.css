@@ -5,10 +5,33 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;}
+    *,
+    *::before,
+    *::after {
+        -webkit-box-sizing: inherit;
+           -moz-box-sizing: inherit;
+                box-sizing: inherit;
+}
 /* Custom Styles */
 
 body {
     margin : 0 !important;
+}
+
+/*w-fit hover:bg-gray-100 transition-colors duration-100*/
+a{
+    width: fit-content;
+}
+a:hover{
+    background-color: #f3f4f6;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--default-transition-timing-function);
+    transition-duration: 100ms;
 }
 
 /* Cursor */

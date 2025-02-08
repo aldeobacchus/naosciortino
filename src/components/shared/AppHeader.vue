@@ -45,13 +45,10 @@ export default {
   <nav id="nav" class="sm:container sm:mx-auto">
     <!-- Header start -->
     <div class="z-10  py-6 flex justify-center items-center gap-[20%]">
-        <h1 @click="setHome">Nao Sciortino</h1>
-        <div class="flex flex-col">
-            <h1 @click="updateAbout()">About</h1>
-            <div class="flex justify-between flex-row">
-                <a href="https://instagram.com" target="_blank" class="uppercase">IG</a>
-                <a href="https://soundcloud.com" target="_blank" class="uppercase">SC</a>
-            </div>
+        <a @click="setHome">Nao Sciortino</a>
+        <div class="flex flex-row gap-8">
+            <a @click="updateAbout()">About</a>
+            <a>Contact</a>
         </div>
     </div>
   </nav>
