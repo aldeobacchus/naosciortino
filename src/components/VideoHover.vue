@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-
+    <!-- Video Hover -->
     <div @mouseenter="playVideo" @mouseleave="resetVideo" class="relative w-[50vh] h-32">
         <video 
             ref="video"

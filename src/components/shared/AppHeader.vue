@@ -1,5 +1,6 @@
 <script>
 import { useArticleStore } from '../../stores/articleStore';
+import { useLinkStore } from '../../stores/linkStore';
 
 export default {
   name: 'AppHeader',
@@ -9,32 +10,36 @@ export default {
     }
   },
   setup() {
+    //article store init
     const articleStore = useArticleStore();
     const updateStoreArticle = (article) => {
-      articleStore.updateArticle(article)
+        articleStore.updateArticle(article)
     }
-    return {articleStore, updateStoreArticle}
+    //link store init
+    const linkStore = useLinkStore();
+    const updateStoreLink = (link) => {
+        linkStore.updateLink(link)
+    }
+
+    return{ articleStore, updateStoreArticle, linkStore, updateStoreLink}
   },
   methods :{
-    updateAbout(){
-      console.log("previous : " + this.view);
+    setAbout(){
       if (this.view !== 'about'){
         this.view = 'about';
-      } else {
-        this.view = 'home';
       }
-      console.log("after : " + this.view);
       this.updateView(this.view);
-    },
-    updateView(view){
-      this.$emit('viewSelected', view);
     },
     setHome(){
       if (this.view !== 'home'){
         this.view = 'home';
       }
       this.updateStoreArticle('');
+      this.updateStoreLink('');
       this.updateView(this.view);
+    },
+    updateView(view){
+      this.$emit('viewSelected', view);
     }
   }
 }
@@ -42,12 +47,12 @@ export default {
 </script>
 
 <template>
-  <nav id="nav" class="sm:container sm:mx-auto">
+  <nav id="nav" class="fixed top-0 left-0 w-full sm:mx-auto bg-white">
     <!-- Header start -->
     <div class="z-10  py-6 flex justify-center items-center gap-[20%]">
         <a @click="setHome">Nao Sciortino</a>
         <div class="flex flex-row gap-8">
-            <a @click="updateAbout()">About</a>
+            <a @click="setAbout">About</a>
             <a>Contact</a>
         </div>
     </div>

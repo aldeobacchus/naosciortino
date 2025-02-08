@@ -39,22 +39,19 @@ export default {
 </script>
 
 <template>
-    
-     <!-- Show the image when hovering -->
+    <!-- About -->
     <div>
-      
         <div v-if="isAnImageVisible" class="image-container" :style="{ top: (mousePosition.y + 20 )+ 'px', left: (mousePosition.x + 20) + 'px' }">
             <img :src="visibleImagePath" alt="image" style="width:150px" />
-
         </div>
 
         <div class="px-4 flex flex-col gap-4">
             <!-- Top row -->
-            <div class="flex flex-row w-full gap-4">
+            <div class="flex flex-col md:flex-row w-full gap-4">
                 <!-- Left part-->
                 <section class="flex-1">
                     <h1>Contact ::</h1>
-                    <div class="flex flex-row gap-8 ml-32">
+                    <div class="flex flex-row gap-8 ml-20 md:ml-32">
                         <a href="">CV</a>
                         <a href="">Mastodon</a>
                         <a href="">IG</a>
@@ -77,7 +74,7 @@ export default {
             </div>
 
             <!-- Bottom row -->
-            <div class="flex flex-row w-full gap-4">
+            <div class="flex flex-col md:flox-row w-full gap-4">
                 <!-- Left part-->
                 <section class="flex-1">
 
@@ -150,8 +147,7 @@ export default {
                     
                 </section>
             </div>
-        </div>
-                
+        </div>      
     </div>
     
 </template> 

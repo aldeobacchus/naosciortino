@@ -17,9 +17,8 @@ export default {
 
 <template>
 
-
-    <div>
-        
+    <!-- Article images -->
+    <div class="inline-block md:ml-[80%]">
         <img 
             v-for="(image, index) in articleStore.article.images" 
             :key="index"

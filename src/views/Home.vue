@@ -23,19 +23,20 @@ export default {
 
 <template>
   
-  <div class="flex flex-row px-4">
+  <div class="flex flex-col md:flex-row px-4">
 
-    <div class="flex flex-col items-start">
-
+    <div class="flex flex-col items-start gap-8">
+      
       <VideoHover v-if="!articleStore.article" videoSrc="/src/assets/video/landing.webm" />
 
-      <ArticleText v-if="articleStore.article" class="fixed  pl-[25%] pr-[25%]"/>
-      
-      <Links class="top-[50%] w-[25%] fixed" />
+      <Links />
+
+      <ArticleText v-if="articleStore.article"/>
 
     </div>
-
-    <ArticleImage v-if="articleStore.article" class="inline-block ml-[75%]" />
+    
+    
+    <ArticleImage v-if="articleStore.article" />
 
   </div>
 

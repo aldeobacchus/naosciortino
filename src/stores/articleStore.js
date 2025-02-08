@@ -1,4 +1,4 @@
-// This file is used to manage the differents variables of the projects with pinia and avoid prop drilling
+// This store is used to store the article selected in the content.json file to share it beetzeen the components
 import {defineStore} from 'pinia';
 
 export const useArticleStore = defineStore('article', {

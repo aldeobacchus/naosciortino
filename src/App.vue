@@ -33,14 +33,13 @@ export default {
    
 
     <!-- App Header -->
-    <AppHeader class="fixed top-0 left-0 w-full"  @viewSelected="updateView"/>
+    <AppHeader @viewSelected="updateView"/>
 
     <!--+++ THE DIFFERENTS VIEWS +++-->
 
     <!-- Home -->
     <Home class="pt-24" v-if="view === 'home'"/>
 
-    <!-- About -->
     <About class="pt-24" v-else-if="view === 'about'" />
 
   </div>
