@@ -22,8 +22,10 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 - [ X ] Responsive
 - [ ] Contact page
 - [ ] Social network links
+- [ ] Scroll up when home button pressed
 - [ ] Deployment
 
 ### Optional
 
+- [ ] Changer le systeme de route pour eviter d'etre en milieu de page lorsque changement de vue (si on scroll un article puis qu'on change pour voir le about en version mobile par exemple)
 - [ ] CI/CD pipeline

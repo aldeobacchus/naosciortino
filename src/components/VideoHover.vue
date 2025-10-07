@@ -32,7 +32,7 @@ export default {
 
 <template>
     <!-- Video Hover -->
-    <div @mouseenter="playVideo" @mouseleave="resetVideo" class="relative w-[50vh] h-32">
+    <div @mouseenter="playVideo" @mouseleave="resetVideo" class="relative md:w-[50vh] w-full h-32">
         <video 
             ref="video"
             muted
