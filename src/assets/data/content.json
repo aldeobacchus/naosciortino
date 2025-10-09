@@ -11,10 +11,10 @@
                 "subtitle": "2024, Test sous titre",
                 "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. \n\nQuis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. \nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
                 "images" : [
-                  "/src/assets/images/1/1/bonhommes.jpg",
-                  "/src/assets/images/1/1/chevalier.jpg",
-                  "/src/assets/images/1/1/chevaux.jpg",
-                  "/src/assets/images/1/1/dessin.jpg"
+                  "../../assets/images/1/1/bonhommes.jpg",
+                  "../../assets/images/1/1/chevalier.jpg",
+                  "../../assets/images/1/1/chevaux.jpg",
+                  "../../assets/images/1/1/dessin.jpg"
                 ]
             },
             {

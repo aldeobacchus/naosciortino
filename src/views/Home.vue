@@ -27,7 +27,7 @@ export default {
 
     <div class="flex flex-col items-start gap-8">
       
-      <VideoHover v-if="!articleStore.article" videoSrc="/src/assets/video/landing.webm" />
+      <VideoHover v-if="!articleStore.article" videoSrc="./assets/video/landing.webm" />
 
       <Links />
 
