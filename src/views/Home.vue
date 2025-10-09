@@ -4,6 +4,7 @@ import ArticleImage from '../components/articles/ArticleImage.vue'
 import Links from '../components/Links.vue'
 import VideoHover from '../components/VideoHover.vue';
 import { useArticleStore } from '../stores/articleStore';
+import landingVideo from '@/assets/video/landing.webm';
 
 export default {
     name: 'Home',
@@ -15,7 +16,7 @@ export default {
     },
     setup() {
       const articleStore = useArticleStore();
-      return{articleStore}
+      return{articleStore,landingVideo}
     }
 
 }
@@ -27,7 +28,7 @@ export default {
 
     <div class="flex flex-col items-start gap-8">
       
-      <VideoHover v-if="!articleStore.article" videoSrc="./assets/video/landing.webm" />
+      <VideoHover v-if="!articleStore.article" :videoSrc="landingVideo" />
 
       <Links />
 
