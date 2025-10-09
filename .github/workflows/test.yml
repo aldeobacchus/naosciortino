@@ -10,17 +10,8 @@ jobs:
 
     steps:
       - name: Debug info
-
         run: |
-
-
           echo "Workflow triggered!"
-
-
           echo "Event: ${{ github.event_name }}"
-
-
           echo "Ref: ${{ github.ref }}"
-
-
           echo "SHA: ${{ github.sha }}"
