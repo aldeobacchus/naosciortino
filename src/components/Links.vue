@@ -39,7 +39,7 @@ export default {
 
 <template>
     <!-- Links -->
-    <section class="md:top-[50%] md:w-[25%] md:fixed flex flex-col">
+    <section class="md:top-[50%] md:w-[25vw] md:fixed flex flex-col">
         <div v-for="link in links" :key="link.id" class="flex flex-col">            
 
             <a @click="displayArticlesLinks(link)"> {{ link.title }} </a>

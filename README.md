@@ -6,27 +6,29 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 
 ## Questions pour Nao
 
-- quel couleurs pour la selection de texte ?
+- la couleur de selection de texte est elle ok ?
 - il y a une outline blanche autour du cursor c'est normal ?
 - la taille du curseur est elle ok ?
-- si le texte est toujours à droite des liens avec certaines resolution le texte est completrement écrasé entre les liens et les images -> passer les images en dessous ?
-- comme le texte est fixé si il est trop long ou que l'ecran est trop petit le texte peut etre coupé sans qu'on puisse scroll
-- Sur des ecrans plus petit le about ne tient pas dans une seule page et on doit scroll, est ce que je met le background de la navbar en blanc, quitte a ce que ca coupe les images des articles lorsqu'on scroll
+- Sur mobile les liens apparraissent au dessus de l'article, est ce que c'est ok ?
+- si on scroll sur un article avec bcp d'image on aura juste les image a droite et du texte au milieu, est ce que c'est ok ?
+- Sur des ecrans plus petit le about ne tient pas dans une seule page et on doit scroll, faut il reduire la police ?
+- Enlever l'onglet Contact si les contact sont dans le about ?
 
 ## TODO
 
 - [ ] Ajouter une section au readme qui explique comment ajouter des articles ou des sections
+- [ ] Erreur lors du chargement des images dans la version deployed donc les charger dynamiquement
+- [ X ] Ameliorer hover sur les images dans le about
 - [ X ] Replier les liens lorsque clic sur Nao Sciortino
+- [ X ] Replier les liens lorsque clic en dehors des liens
 - [ X ] Title
 - [ ] Icon
-- [ X ] Responsive
-- [ ] Contact page
+- [ ] Responsive
+  - [ ] Parfois léger scroll left right sur mobile
 - [ ] Social network links
-- [ ] Scroll up when home button pressed
-- [ ] Deployment
-- [ ]
+- [ ] Scroll up quand changement d'article
+- [ X ] Deployment
 
 ### Optional
 
-- [ ] Changer le systeme de route pour eviter d'etre en milieu de page lorsque changement de vue (si on scroll un article puis qu'on change pour voir le about en version mobile par exemple)
-- [ ] CI/CD pipeline
+- [ X ] CI/CD pipeline

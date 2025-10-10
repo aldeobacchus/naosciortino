@@ -30,9 +30,9 @@ export default {
       
       <VideoHover v-if="!articleStore.article" :videoSrc="landingVideo" />
       
-      <div class="flex flex-row ">
+      <div class="flex md:flex-row flex-col gap-8 md:gap-0">
         <Links />
-        <div class="flex flex-row">
+        <div class="flex flex-col gap-8 md:flex-row">
 
           <ArticleText v-if="articleStore.article"/>
 
@@ -41,9 +41,6 @@ export default {
       </div>
 
     </div>
-    
-    
-    
 
   </div>
 

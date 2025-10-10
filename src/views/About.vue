@@ -1,38 +1,37 @@
 <script>
 
 import { data } from 'autoprefixer';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
+import chevaux from '@/assets/images/1/1/chevaux.jpg';
+import bonhomme from '@/assets/images/1/1/bonhommes.jpg';
 
 export default {
     name: 'About',
-    data() {
-        return {
-            isAnImageVisible: false,
-            visibleImagePath: '',
-            mousePosition: reactive({
-                x: 0,
-                y: 0
-            })
-        }
-    },
-    methods: {
-        //a method to display the image in bigger size when hovering
-        showImage(event, path) {
-            console.log("x : " + event.clientX + " y : " + event.clientY);
-            if (this.isAnImageVisible === false) {
+    setup() {
+        const visibleImage = ref(null);
+        const isAnImageVisible = ref(false);
+        const mousePosition = ref({ x: 0, y: 0 });
+
+        const showImage = (event, image) =>{
+            //console.log("x : " + event.clientX + " y : " + event.clientY);
+            if (!isAnImageVisible.value) {
                 console.log('show image');
-                this.visibleImagePath = path;
-                this.isAnImageVisible = true;
-                this.mousePosition.x = event.clientX;
-                this.mousePosition.y = event.clientY;
+                visibleImage.value = image;
+                console.log(image);
+                isAnImageVisible.value = true;
             }
+            mousePosition.value.x = event.clientX;
+            mousePosition.value.y = event.clientY;
             
-        },
-        hideImage() {
-            console.log('hide image');
-            this.isAnImageVisible = false;
-            console.log(this.isAnImageVisible);
         }
+        const hideImage = () => {
+            console.log('hide image');
+            isAnImageVisible.value = false;
+            visibleImage.value = null;
+            console.log(isAnImageVisible.value);
+        }
+
+        return { chevaux, bonhomme, visibleImage, isAnImageVisible, mousePosition, showImage, hideImage }
     }
 }
 
@@ -42,12 +41,12 @@ export default {
     <!-- About -->
     <div>
         <div v-if="isAnImageVisible" class="image-container" :style="{ top: (mousePosition.y + 20 )+ 'px', left: (mousePosition.x + 20) + 'px' }">
-            <img :src="visibleImagePath" alt="image" style="width:150px" />
+            <img :src="visibleImage" alt="image" style="width:150px" />
         </div>
 
         <div class="px-4 flex flex-col gap-4">
             <!-- Top row -->
-            <div class="flex flex-col md:flex-row w-full gap-4">
+            <div class="flex flex-col md:flex-row w-full gap-4 text-justify">
                 <!-- Left part-->
                 <section class="flex-1">
                     <h1>Contact ::</h1>
@@ -59,7 +58,7 @@ export default {
                     </div>      
                     <br>
                     <p>
-                        Nao Sciortino <img @:mousemove="(event) => showImage(event, '/src/assets/images/1/1/chevaux.jpg')"  v-on:mouseleave="hideImage()" class="h-4 w-4 inline-block" src="/src/assets/images/1/1/chevaux.jpg">(b.2001) is a graphic designer & interdisciplinary artist
+                        Nao Sciortino <img @mousemove="(event) => showImage(event, chevaux)"  @mouseleave="hideImage()" class="h-4 w-4 inline-block" :src="chevaux">(b.2001) is a graphic designer & interdisciplinary artist
                         based in Toulouse, South of France. Their practice intersects raw material & narratives, oscillating through sound, video, photography, installation, or human patterns; where poetic rhythms emerge from everyday life.
                     </p>
                 </section>
@@ -68,13 +67,13 @@ export default {
                 <section class="flex-1">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Risus commodo viverra maecenas accumsan lacus vel facilisis. Risus commodo viverra maecenas accumsan lacus vel facilisis. Risus commodo viverra maecenas accumsan lacus vel facilisis.
-                        <img @:mousemove="(event) => showImage(event, '/src/assets/images/1/1/bonhommes.jpg')"  v-on:mouseleave="hideImage()" style="width:5rem; height:1rem; display:inline-block" src="/src/assets/images/1/1/bonhommes.jpg">
+                        <img @mousemove="(event) => showImage(event, bonhomme)"  @mouseleave="hideImage()" style="width:5rem; height:1rem; display:inline-block" :src="bonhomme">
                     </p>
                 </section>
             </div>
 
             <!-- Bottom row -->
-            <div class="flex flex-col md:flox-row w-full gap-4">
+            <div class="flex flex-col md:flex-row w-full gap-4">
                 <!-- Left part-->
                 <section class="flex-1">
 
@@ -101,7 +100,8 @@ export default {
                     <h2 class="pl-32">¯2019</h2>
                     <p>(HS) Baccalaureate Cinema theory - with distinctions</p>
 
-
+                    <br></br>
+                    
                     <h1>(Residences)</h1>
 
                     <h2 class="pl-32">¯2023-present</h2>
