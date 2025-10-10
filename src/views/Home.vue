@@ -29,15 +29,21 @@ export default {
     <div class="flex flex-col items-start gap-8">
       
       <VideoHover v-if="!articleStore.article" :videoSrc="landingVideo" />
+      
+      <div class="flex flex-row ">
+        <Links />
+        <div class="flex flex-row">
 
-      <Links />
+          <ArticleText v-if="articleStore.article"/>
 
-      <ArticleText v-if="articleStore.article"/>
+          <ArticleImage v-if="articleStore.article" />
+        </div>
+      </div>
 
     </div>
     
     
-    <ArticleImage v-if="articleStore.article" />
+    
 
   </div>
 

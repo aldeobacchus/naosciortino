@@ -38,9 +38,9 @@ export default {
     <!--+++ THE DIFFERENTS VIEWS +++-->
 
     <!-- Home -->
-    <Home class="pt-24" v-if="view === 'home'"/>
+    <Home class="pt-16" v-if="view === 'home'"/>
 
-    <About class="pt-24" v-else-if="view === 'about'" />
+    <About class="pt-16" v-else-if="view === 'about'" />
 
   </div>
   

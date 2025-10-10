@@ -22,12 +22,13 @@ export default {
 <template>
 
     <!-- Article images -->
-    <div class="inline-block md:ml-[80%]">
+    <div class="inline-block">
         <img 
             v-for="(image, index) in articleStore.article.images" 
             :key="index"
             :src=getImageUrl(image)
             :alt="`Image ${index + 1} - ${articleStore.activeArticle?.title}`">
+        </img>
 
     </div>
 
