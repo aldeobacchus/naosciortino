@@ -12,11 +12,11 @@ export default {
         getImageUrl(url){
             console.log("url :");
             console.log(url);
-            return new URL(url, import.meta.url).href
+            return `${import.meta.env.BASE_URL}${url}`;
         }
     }
 };
-1
+
 </script>
 
 <template>
@@ -27,7 +27,7 @@ export default {
             v-for="(image, index) in articleStore.article.images" 
             :key="index"
             :src=getImageUrl(image)
-            :alt="`Image ${index + 1} - ${articleStore.activeArticle?.title}`">
+            :alt="`Image ${index + 1} - ${image}`">
         </img>
 
     </div>

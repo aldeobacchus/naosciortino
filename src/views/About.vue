@@ -2,8 +2,8 @@
 
 import { data } from 'autoprefixer';
 import { reactive, ref } from 'vue';
-import chevaux from '@/assets/images/1/1/chevaux.jpg';
-import bonhomme from '@/assets/images/1/1/bonhommes.jpg';
+import chevaux from '@/assets/images/chevaux.jpg';
+import bonhomme from '@/assets/images/bonhommes.jpg';
 
 export default {
     name: 'About',
