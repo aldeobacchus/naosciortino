@@ -24,7 +24,7 @@ export default {
 
 <template>
   
-  <div class="flex flex-col md:flex-row px-4">
+  <div class="flex flex-col md:flex-row px-6 pb-6">
 
     <div class="flex flex-col items-start gap-8">
       

@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <div class="font-PPSupplyMono-Ultralight">
+  <div class="font-Arial-Narrow">
    
 
     <!-- App Header -->

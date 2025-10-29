@@ -22,6 +22,15 @@ export default {
 					'2xl': '1rem',
 				},
 			},
+			fontFamily: {
+				sans: ['Arial Narrow', 'Arial', 'sans-serif'],
+			},
+			fontSize: {
+				base: '16px',
+			},
+			lineHeight: {
+				normal: '1.3',
+			}
 		},
 	}
 }

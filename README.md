@@ -20,8 +20,9 @@ Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://
 - [ ] Erreur lors du chargement des images dans la version deployed donc les charger dynamiquement
 - [ X ] Ameliorer hover sur les images dans le about
 - [ X ] Replier les liens lorsque clic sur Nao Sciortino
-- [ X ] Replier les liens lorsque clic en dehors des liens
+- [ ] Replier les liens lorsque clic en dehors des liens
 - [ X ] Title
+- [ ] Meme marge en haut en bas et sur les cotes
 - [ ] Icon
 - [ ] Responsive
   - [ ] Parfois léger scroll left right sur mobile
