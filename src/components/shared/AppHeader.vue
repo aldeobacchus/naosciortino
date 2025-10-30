@@ -47,9 +47,9 @@ export default {
 </script>
 
 <template>
-  <nav id="nav" class="fixed top-0 left-0 w-full h-16 sm:mx-auto bg-white">
+  <nav id="nav" class="fixed top-0 left-0 w-screen flex h-16 sm:mx-auto bg-white">
     <!-- Header start -->
-    <div class="z-10  py-6 flex justify-center items-center gap-[20%]">
+    <div class="z-10 flex w-full justify-center items-center gap-[20%]">
         <a @click="setHome">Nao Sciortino</a>
         <div class="flex flex-row gap-8">
             <a @click="setAbout">About</a>

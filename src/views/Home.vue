@@ -24,7 +24,7 @@ export default {
 
 <template>
   
-  <div class="flex flex-col md:flex-row px-6 pb-6">
+  <div class="flex flex-col md:flex-row px-6 pb-6 max-w-screen">
 
     <div class="flex flex-col items-start gap-8">
       
@@ -35,7 +35,7 @@ export default {
         <div class="flex flex-col gap-8 md:flex-row">
 
           <ArticleText v-if="articleStore.article"/>
-
+          
           <ArticleImage v-if="articleStore.article" />
         </div>
       </div>
