@@ -4,7 +4,6 @@ import {ref, onMounted} from 'vue';
  export default {
     props: {
         videoSrc: {
-            type: String,
             required: true
         }
     },
