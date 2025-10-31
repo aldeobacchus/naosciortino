@@ -22,7 +22,7 @@ export default {
 <template>
 
     <!-- Article images -->
-    <div class="inline-block md:w-[25vw] md:max-h-[calc(100vh-4rem-1.5rem)] md:flex-none md:overflow-y-auto h-full">
+    <div class="inline-block sticky top-16 z-0 md:w-[25vw] md:max-h-[calc(100vh-4rem-1.5rem)] md:flex-none md:overflow-y-auto h-full">
         <img 
             v-for="(image, index) in articleStore.article.images" 
             :key="index"
