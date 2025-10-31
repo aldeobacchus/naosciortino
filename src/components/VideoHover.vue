@@ -4,6 +4,7 @@ import {ref, onMounted} from 'vue';
  export default {
     props: {
         videoSrc: {
+            type: String,
             required: true
         }
     },
@@ -105,6 +106,14 @@ import {ref, onMounted} from 'vue';
 
 <template>
     <!-- Video Hover -->
+    <!-- Debug -->
+    <div v-if="isMobile" class="fixed top-0 left-0 bg-red-500 text-white p-2 text-xs z-50">
+        Mobile - Video: {{ videoSrc }}
+    </div>
+    <div v-else class="fixed top-0 left-0 bg-blue-500 text-white p-2 text-xs z-50">
+        Desktop - Video: {{ videoSrc }}
+    </div>
+
     <div 
         v-if="!isMobile"
         @mouseenter="playVideo" 
