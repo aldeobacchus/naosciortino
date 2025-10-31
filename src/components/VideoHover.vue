@@ -12,6 +12,12 @@ import {ref, onMounted} from 'vue';
         const video = ref(null);
         const isMobile = ref(false);
         const isPlaying = ref(false);
+        const debugInfo = ref({
+            state: 'init',
+            error: null,
+            canPlay: false,
+            isPlaying: false
+        });
 
         // Détection mobile
         const checkMobile = () => {
@@ -19,7 +25,12 @@ import {ref, onMounted} from 'vue';
         };
 
         const initMobileVideo = async () => {
-            if(!video.value) return;
+           if(!video.value) {
+                debugInfo.value.state = 'no_video_element';
+                return;
+            }
+
+            debugInfo.value.state = 'loading';
             
             // Configuration mobile
             video.value.playsinline = true;
@@ -29,25 +40,45 @@ import {ref, onMounted} from 'vue';
             video.value.controls = false;
             video.value.disablePictureInPicture = true;
 
-            // Lancer automatiquement sur mobile
-            video.value.addEventListener('loadeddata', async () => {
-                try {
-                    await video.value.play();
-                    isPlaying.value = true;
-                    console.log('Mobile video playing automatically');
-                } catch (error) {
-                    // Réessayer silencieusement
-                    setTimeout(() => {
-                        video.value?.play().catch(() => {});
-                    }, 1000);
-                }
+            //Events
+            video.value.addEventListener('loadstart', () => {
+                debugInfo.value.state = 'load_started';
             });
 
-            // Maintenir la lecture
-            video.value.addEventListener('ended', () => {
-                video.value.currentTime = 0;
-                video.value.play().catch(() => {});
+            video.value.addEventListener('loadeddata', () => {
+                debugInfo.value.state = 'data_loaded';
+                debugInfo.value.canPlay = true;
             });
+
+            video.value.addEventListener('canplay', () => {
+                debugInfo.value.state = 'can_play';
+                attemptAutoplay();
+            });
+
+            video.value.addEventListener('playing', () => {
+                debugInfo.value.state = 'playing';
+                debugInfo.value.isPlaying = true;
+            });
+
+            video.value.addEventListener('error', (e) => {
+                debugInfo.value.state = 'error';
+                debugInfo.value.error = video.value.error ? video.value.error.message : 'Unknown error';
+            });
+
+            const attemptAutoplay = () => {
+                video.value.play().then(() => {
+                    debugInfo.value.state = 'autoplay_success';
+                }).catch(error => {
+                    debugInfo.value.state = 'autoplay_blocked';
+                    // Réessayer au premier touch
+                    document.addEventListener('touchstart', () => {
+                        debugInfo.value.state = 'retrying_after_touch';
+                        video.value.play().catch(e => {
+                            debugInfo.value.state = 'retry_failed';
+                        });
+                    }, { once: true });
+                });
+            };
 
             video.value.load();
         };
@@ -96,6 +127,7 @@ import {ref, onMounted} from 'vue';
         return {
             video, 
             isMobile,
+            debugInfo,
             playVideo, 
             resetVideo
         };
@@ -107,11 +139,27 @@ import {ref, onMounted} from 'vue';
 <template>
     <!-- Video Hover -->
     <!-- Debug -->
-    <div v-if="isMobile" class="fixed top-0 left-0 bg-red-500 text-white p-2 text-xs z-50">
-        Mobile - Video: {{ videoSrc }}
+    <div 
+        v-if="isMobile" 
+        class="fixed top-1 left-2 right-2 bg-black text-white p-3 text-sm z-50 rounded shadow-lg opacity-80"
+    >
+        <div class="grid grid-cols-2 gap-2">
+            <div>📱 Mobile: OUI</div>
+            <div>🎬 Source: {{ videoSrc }}</div>
+            <div>📊 État: {{ debugInfo.state }}</div>
+            <div>▶️ Lecture: {{ debugInfo.isPlaying ? 'OUI' : 'NON' }}</div>
+            <div v-if="debugInfo.error" class="col-span-2 text-red-400">
+                ❌ Erreur: {{ debugInfo.error }}
+            </div>
+        </div>
     </div>
-    <div v-else class="fixed top-0 left-0 bg-blue-500 text-white p-2 text-xs z-50">
-        Desktop - Video: {{ videoSrc }}
+
+    <!-- Debug overlay desktop (moins visible) -->
+    <div 
+        v-else
+        class="fixed top-1 left-1 bg-blue-500 text-white p-1 text-xs z-50 rounded opacity-70"
+    >
+        Desktop
     </div>
 
     <div 
